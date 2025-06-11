@@ -20,10 +20,14 @@ export default function Formelrad() {
         message: "red"
     })
 
+    function resetColors(){
+        setColors( colors=> ({...colors, u:"black", i:"black", r:"black", p:"black"}));
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("handleSubmit")
-        setColors(c => ({ ...c, u: "black", i: "black", r: "black", p: "black" }));
+        resetColors()
         if (values.u === "" && values.i === "") {
             /*calculate u and i */
             setValues(values => ({...values, u: Math.sqrt(values.p * values.r)}));
